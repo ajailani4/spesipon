@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Spesipon</string>
+    <string name="search_phone">Search phone</string>
+    <string name="lihat_spesifikasi">Lihat Spesifikasi Handphone Idaman Anda</string>
+    <string name="home">Home</string>
+    <string name="brands">Brands</string>
+</resources>
