@@ -14,15 +14,20 @@ interface ApiService {
         @Query("page") page: Int,
     ): Response<BrandResponse>
 
-    @GET("brands/{brand}")
+    @GET("brands/{brandSlug}")
     suspend fun getPhones(
-        @Path("brand") brand: String,
+        @Path("brandSlug") brandSlug: String,
         @Query("page") page: Int
     ): Response<PhoneResponse>
 
-    @GET("brands/{brand}/{phone}")
+    @GET("brands/{brandSlug}")
+    suspend fun getPhonesHome(
+        @Path("brandSlug") brandSlug: String
+    ): Response<PhoneResponse>
+
+    @GET("brands/{brandSlug}/{phoneSlug}")
     suspend fun getPhoneSpecs(
-        @Path("brand") brand: String,
-        @Path("phone") phone: String
+        @Path("brandSlug") brandSlug: String,
+        @Path("phoneSlug") phoneSlug: String
     ): Response<PhoneSpecsResponse>
 }
