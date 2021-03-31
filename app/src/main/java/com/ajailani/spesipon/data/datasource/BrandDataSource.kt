@@ -1,5 +1,6 @@
 package com.ajailani.spesipon.data.datasource
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ajailani.spesipon.data.api.ApiHelper
@@ -11,9 +12,10 @@ class BrandDataSource @Inject constructor(
     private val apiHelper: ApiHelper
 ) : PagingSource<Int, Brand>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Brand> {
+        val currentLoadingPageKey = params.key ?: 1
+
         return try {
-            val currentLoadingPageKey = params.key ?: 1
-            val response = apiHelper.getBrands(currentLoadingPageKey)
+            val response = apiHelper.getBrands(currentLoadingPageKey, 20)
             val data = response.body()?.data?.brands ?: emptyList()
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
@@ -29,6 +31,6 @@ class BrandDataSource @Inject constructor(
     }
 
     override fun getRefreshKey(state: PagingState<Int, Brand>): Int? {
-        TODO("Not yet implemented")
+        return state.anchorPosition
     }
 }

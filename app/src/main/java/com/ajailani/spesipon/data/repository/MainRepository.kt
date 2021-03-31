@@ -1,5 +1,6 @@
 package com.ajailani.spesipon.data.repository
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -32,7 +33,13 @@ class MainRepository @Inject constructor(
 
     @ExperimentalCoroutinesApi
     fun getPhonesHome(brandSlug: String): Flow<List<Phone>> = flow {
-        val phonesHomeList = apiHelper.getPhonesHome(brandSlug).body()?.data?.phones ?: emptyList()
+        val phonesHomeList = mutableListOf<Phone>()
+        val response = apiHelper.getPhonesHome(brandSlug).body()?.data?.phones ?: emptyList()
+
+        // Put 5 phones only to phoneHomeList
+        for (i in 0..4) {
+            phonesHomeList.add(response[i])
+        }
 
         emit(phonesHomeList)
     }

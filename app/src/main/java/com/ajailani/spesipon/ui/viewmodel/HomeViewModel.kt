@@ -9,6 +9,7 @@ import com.ajailani.spesipon.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -25,7 +26,7 @@ class HomeViewModel @Inject constructor(
     fun getBrands() = mainRepository.getBrands().cachedIn(viewModelScope)
 
     @ExperimentalCoroutinesApi
-    fun getPhonesHome(brandSlug: String) {
+    fun fetchPhonesHome(brandSlug: String) {
         viewModelScope.launch {
             mainRepository.getPhonesHome(brandSlug)
                 .catch { e ->
@@ -35,5 +36,10 @@ class HomeViewModel @Inject constructor(
                     phonesHomeList.value = Resource.success(data)
                 }
         }
+    }
+
+    @ExperimentalCoroutinesApi
+    fun getPhonesHome(): StateFlow<Resource<List<Phone>>> {
+        return phonesHomeList
     }
 }

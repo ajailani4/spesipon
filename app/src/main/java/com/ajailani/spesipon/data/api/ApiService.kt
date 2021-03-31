@@ -12,6 +12,7 @@ interface ApiService {
     @GET("brands")
     suspend fun getBrands(
         @Query("page") page: Int,
+        @Query("limit") limit: Int
     ): Response<BrandResponse>
 
     @GET("brands/{brandSlug}")

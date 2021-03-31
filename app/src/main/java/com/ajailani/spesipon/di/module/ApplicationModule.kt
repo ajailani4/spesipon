@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class ApplicationModule {
     @Provides
-    fun provideBaseUrl() = "http://api-mobilespecs.azharimm.tk/"
+    fun provideBaseUrl() = "https://api-mobilespecs.azharimm.tk/"
 
     @Provides
     @Singleton

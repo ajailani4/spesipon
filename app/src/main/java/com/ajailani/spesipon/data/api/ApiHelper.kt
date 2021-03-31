@@ -5,8 +5,8 @@ import javax.inject.Inject
 class ApiHelper @Inject constructor(
     private val apiService: ApiService
 ) {
-    suspend fun getBrands(page: Int) =
-        apiService.getBrands(page)
+    suspend fun getBrands(page: Int, limit: Int) =
+        apiService.getBrands(page, limit)
 
     suspend fun getPhones(brandSlug: String, page: Int) =
         apiService.getPhones(brandSlug, page)

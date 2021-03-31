@@ -6,8 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class PhoneSpecs(
-    @Json(name = "title")
+    @field:Json(name = "title")
     val title: String,
-    @Json(name = "specs")
+    @field:Json(name = "specs")
     val specs: HashMap<String, List<String>>
 ) : Parcelable

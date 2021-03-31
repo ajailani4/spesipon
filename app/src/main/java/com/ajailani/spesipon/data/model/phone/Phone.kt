@@ -6,12 +6,12 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Phone(
-    @Json(name = "phone_name")
+    @field:Json(name = "phone_name")
     val name: String,
-    @Json(name = "phone_name_slug")
+    @field:Json(name = "phone_name_slug")
     val slug: String,
-    @Json(name = "brand")
+    @field:Json(name = "brand")
     val brandName: String,
-    @Json(name = "phone_img_url")
+    @field:Json(name = "phone_img_url")
     val image: String
 ) : Parcelable

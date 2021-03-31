@@ -26,9 +26,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingBottom="10dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
-        tools:listitem="@layout/item_brand_phone"/>
+        tools:listitem="@layout/item_brand"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
