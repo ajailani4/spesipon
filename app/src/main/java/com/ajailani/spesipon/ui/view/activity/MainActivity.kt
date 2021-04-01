@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         // NavController is for controlling the navigation
         navController = navHostFragment.findNavController()
 
-        binding.bottomAppBar.setupWithNavController(navController)
+        binding.bottomNav.setupWithNavController(navController)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

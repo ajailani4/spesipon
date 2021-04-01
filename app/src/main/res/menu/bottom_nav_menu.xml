@@ -3,11 +3,17 @@
 
     <item
         android:id="@+id/home"
+        android:enabled="true"
         android:icon="@drawable/ic_home"
         android:title="@string/home" />
 
     <item
+        android:enabled="false"
+        android:title="" />
+
+    <item
         android:id="@+id/brands"
+        android:enabled="true"
         android:icon="@drawable/ic_brands"
         android:title="@string/brands" />
 
