@@ -1,19 +1,29 @@
 package com.ajailani.spesipon.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.ItemPhoneHomeBinding
+import com.bumptech.glide.Glide
 
 class PhonesHomeAdapter(
-    private val phonesHomeList: List<Phone>
+    private val phonesHomeList: List<Phone>?
 ) : RecyclerView.Adapter<PhonesHomeAdapter.ViewHolder>() {
     private lateinit var binding: ItemPhoneHomeBinding
 
     class ViewHolder(private val binding: ItemPhoneHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        fun bind(phone: Phone?) {
+            binding.apply {
+                Glide.with(image.context)
+                    .load(phone?.image)
+                    .into(image)
 
+                name.text = phone?.name
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,8 +35,8 @@ class PhonesHomeAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(phonesHomeList?.get(position))
     }
 
-    override fun getItemCount() = phonesHomeList.size
+    override fun getItemCount() = phonesHomeList!!.size
 }

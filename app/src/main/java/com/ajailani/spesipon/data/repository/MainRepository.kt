@@ -24,23 +24,10 @@ class MainRepository @Inject constructor(
 ) {
     fun getBrands(): Flow<PagingData<Brand>> {
         return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = 20),
+            config = PagingConfig(enablePlaceholders = false, pageSize = 5),
             pagingSourceFactory = {
                 BrandDataSource(apiHelper)
             }
         ).flow
-    }
-
-    @ExperimentalCoroutinesApi
-    fun getPhonesHome(brandSlug: String): Flow<List<Phone>> = flow {
-        val phonesHomeList = mutableListOf<Phone>()
-        val response = apiHelper.getPhonesHome(brandSlug).body()?.data?.phones ?: emptyList()
-
-        // Put 5 phones only to phoneHomeList
-        for (i in 0..4) {
-            phonesHomeList.add(response[i])
-        }
-
-        emit(phonesHomeList)
     }
 }

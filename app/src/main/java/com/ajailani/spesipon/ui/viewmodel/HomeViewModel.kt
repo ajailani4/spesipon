@@ -19,27 +19,5 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ): ViewModel() {
-    @ExperimentalCoroutinesApi
-    private val phonesHomeList =
-        MutableStateFlow<Resource<List<Phone>>>(Resource.loading(null))
-
     fun getBrands() = mainRepository.getBrands().cachedIn(viewModelScope)
-
-    @ExperimentalCoroutinesApi
-    fun fetchPhonesHome(brandSlug: String) {
-        viewModelScope.launch {
-            mainRepository.getPhonesHome(brandSlug)
-                .catch { e ->
-                    phonesHomeList.value = Resource.error(e.toString(), null)
-                }
-                .collect { data ->
-                    phonesHomeList.value = Resource.success(data)
-                }
-        }
-    }
-
-    @ExperimentalCoroutinesApi
-    fun getPhonesHome(): StateFlow<Resource<List<Phone>>> {
-        return phonesHomeList
-    }
 }

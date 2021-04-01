@@ -15,8 +15,18 @@ class BrandDataSource @Inject constructor(
         val currentLoadingPageKey = params.key ?: 1
 
         return try {
-            val response = apiHelper.getBrands(currentLoadingPageKey, 20)
+            val response = apiHelper.getBrands(currentLoadingPageKey, 5)
             val data = response.body()?.data?.brands ?: emptyList()
+
+            data.forEach { brand ->
+                var phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones ?: emptyList()
+
+                if (phonesList.size > 5) {
+                    phonesList = phonesList.subList(0, 5)
+                }
+
+                brand.phonesList = phonesList
+            }
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
 
