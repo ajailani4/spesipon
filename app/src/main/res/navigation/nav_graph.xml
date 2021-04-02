@@ -10,4 +10,9 @@
         android:name="com.ajailani.spesipon.ui.view.fragment.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/brandsFragment"
+        android:name="com.ajailani.spesipon.ui.view.fragment.BrandsFragment"
+        android:label="Brands"
+        tools:layout="@layout/fragment_brands" />
 </navigation>
