@@ -54,6 +54,14 @@ class HomeFragment : Fragment() {
         binding.brandPhoneRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = brandHomeAdapter
+
+            brandHomeAdapter.addLoadStateListener { loadState ->
+                if (loadState.refresh is LoadState.Loading) {
+                    binding.progressBar.visibility = View.VISIBLE
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                }
+            }
         }
 
         // Get brands list and show it

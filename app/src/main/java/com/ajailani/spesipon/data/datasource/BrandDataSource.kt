@@ -18,6 +18,7 @@ class BrandDataSource @Inject constructor(
             val response = apiHelper.getBrands(currentLoadingPageKey, 5)
             val data = response.body()?.data?.brands ?: emptyList()
 
+            // Put phonesList to each brand
             data.forEach { brand ->
                 var phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones ?: emptyList()
 
