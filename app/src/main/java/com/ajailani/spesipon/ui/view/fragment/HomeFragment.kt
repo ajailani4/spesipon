@@ -12,6 +12,7 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajailani.spesipon.databinding.FragmentHomeBinding
 import com.ajailani.spesipon.ui.adapter.BrandHomeAdapter
+import com.ajailani.spesipon.ui.adapter.FooterAdapter
 import com.ajailani.spesipon.ui.viewmodel.HomeViewModel
 import com.ajailani.spesipon.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,7 +54,9 @@ class HomeFragment : Fragment() {
 
         binding.brandPhoneRv.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = brandHomeAdapter
+            adapter = brandHomeAdapter.withLoadStateFooter(
+                footer = FooterAdapter()
+            )
 
             brandHomeAdapter.addLoadStateListener { loadState ->
                 if (loadState.refresh is LoadState.Loading) {

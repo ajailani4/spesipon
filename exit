@@ -1,0 +1,35 @@
+[33mcommit 62093bdee6328e946e8dda35db11a922b8858cac[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Fri Apr 2 18:24:09 2021 +0700
+
+    Added progress bar in HomeFragment and fixed item_phone_home layout
+
+[33mcommit 8bde1b8b2699acf9bd96df9edb23b1740d893f58[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Thu Apr 1 17:40:58 2021 +0700
+
+    Phones list based on the brand has been showed in HomeFragment
+
+[33mcommit 81d23b25d5d998553cbfa273e215a654f164fc96[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Thu Apr 1 11:50:39 2021 +0700
+
+    Added bottom navigation view into bottom app bar
+
+[33mcommit 295498c29d2532b4246a73513f7f97f9cbe6b990[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Wed Mar 31 23:25:15 2021 +0700
+
+    Brands list has been showed in HomeFragment with pagination
+
+[33mcommit 5e21ac9c4a4d3b71c975852824a71a43667eeb2e[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Wed Mar 31 11:37:29 2021 +0700
+
+    Added pagination to show brands list
+
+[33mcommit de389ab7c49a0e865d39af679218ca36d8424c21[m
+Author: Ahmad Jailani <ahmadjailani604@gmail.com>
+Date:   Tue Mar 30 18:40:37 2021 +0700
+
+    Created project struture, added depedencies, added nav graph, and config api and its response
