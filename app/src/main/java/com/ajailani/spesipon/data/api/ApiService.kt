@@ -18,10 +18,11 @@ interface ApiService {
     @GET("brands/{brandSlug}")
     suspend fun getPhones(
         @Path("brandSlug") brandSlug: String,
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("limit") limit: Int
     ): Response<PhoneResponse>
 
-    @GET("brands/{brandSlug}")
+    @GET("brands/{brandSlug}?limit=5")
     suspend fun getPhonesHome(
         @Path("brandSlug") brandSlug: String
     ): Response<PhoneResponse>

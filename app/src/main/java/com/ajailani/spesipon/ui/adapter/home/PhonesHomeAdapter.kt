@@ -1,6 +1,5 @@
-package com.ajailani.spesipon.ui.adapter
+package com.ajailani.spesipon.ui.adapter.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

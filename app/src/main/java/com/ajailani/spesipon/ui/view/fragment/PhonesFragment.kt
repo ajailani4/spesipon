@@ -8,30 +8,30 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.ajailani.spesipon.data.model.brand.Brand
-import com.ajailani.spesipon.databinding.FragmentHomeBinding
+import androidx.recyclerview.widget.GridLayoutManager
+import com.ajailani.spesipon.databinding.FragmentPhonesBinding
+import com.ajailani.spesipon.ui.adapter.brands.PhonesAdapter
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
-import com.ajailani.spesipon.ui.adapter.home.BrandHomeAdapter
-import com.ajailani.spesipon.ui.viewmodel.HomeViewModel
+import com.ajailani.spesipon.ui.viewmodel.PhonesBrandViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
-    private val homeViewModel: HomeViewModel by activityViewModels()
-    private lateinit var brandHomeAdapter: BrandHomeAdapter
+class PhonesFragment : Fragment() {
+    private lateinit var binding: FragmentPhonesBinding
+    private val args: PhonesFragmentArgs by navArgs()
+    private val phonesBrandViewModel: PhonesBrandViewModel by activityViewModels()
+    private lateinit var phonesAdapter: PhonesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(
+        savedInstanceState: Bundle?): View {
+        binding = FragmentPhonesBinding.inflate(
             inflater, container, false
         )
 
@@ -40,25 +40,27 @@ class HomeFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
 
         setupView()
     }
 
     @ExperimentalCoroutinesApi
     private fun setupView() {
-        // Setup brandAdapter and brandPhoneRv
-        brandHomeAdapter = BrandHomeAdapter { brand ->
-            navigateToPhonesBrand(brand)
+        binding.brandName.text = args.brandName
+
+        // Setup phonesAdapter and phonesRv
+        phonesAdapter = PhonesAdapter { phone ->
+
         }
 
-        binding.brandPhoneRv.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = brandHomeAdapter.withLoadStateFooter(
+        binding.phonesRv.apply {
+            layoutManager = GridLayoutManager(context, 2)
+            adapter = phonesAdapter.withLoadStateFooter(
                 footer = FooterAdapter()
             )
 
-            brandHomeAdapter.addLoadStateListener { loadState ->
+            phonesAdapter.addLoadStateListener { loadState ->
                 if (loadState.refresh is LoadState.Loading) {
                     binding.progressBar.visibility = View.VISIBLE
                 } else {
@@ -67,16 +69,11 @@ class HomeFragment : Fragment() {
             }
         }
 
-        // Get brands list and show it
+        // Get phones list and show it
         lifecycleScope.launch {
-            homeViewModel.getBrands().collect { brands ->
-                brandHomeAdapter.submitData(brands)
+            phonesBrandViewModel.getPhones(args.brandSlug).collect { phones ->
+                phonesAdapter.submitData(phones)
             }
         }
-    }
-
-    private fun navigateToPhonesBrand(brand: Brand) {
-        val direction = HomeFragmentDirections.actionHomeFragmentToPhonesFragment(brand.slug, brand.name)
-        findNavController().navigate(direction)
     }
 }

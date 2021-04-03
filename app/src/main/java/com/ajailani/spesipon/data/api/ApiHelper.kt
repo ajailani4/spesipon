@@ -8,8 +8,8 @@ class ApiHelper @Inject constructor(
     suspend fun getBrands(page: Int, limit: Int) =
         apiService.getBrands(page, limit)
 
-    suspend fun getPhones(brandSlug: String, page: Int) =
-        apiService.getPhones(brandSlug, page)
+    suspend fun getPhones(brandSlug: String, page: Int, limit: Int) =
+        apiService.getPhones(brandSlug, page, limit)
 
     suspend fun getPhonesHome(brandSlug: String) =
         apiService.getPhonesHome(brandSlug)

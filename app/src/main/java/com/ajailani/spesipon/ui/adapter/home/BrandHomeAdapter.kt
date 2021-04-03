@@ -1,6 +1,5 @@
-package com.ajailani.spesipon.ui.adapter
+package com.ajailani.spesipon.ui.adapter.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -8,14 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.brand.Brand
-import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.ItemBrandHomeBinding
-import com.ajailani.spesipon.utils.Resource
-import com.ajailani.spesipon.utils.Status
 
 class BrandHomeAdapter(
-    private val listener: (String) -> Unit
-): PagingDataAdapter<Brand, BrandHomeAdapter.ViewHolder>(DataDifferentiator) {
+    private val listener: (Brand) -> Unit
+) : PagingDataAdapter<Brand, BrandHomeAdapter.ViewHolder>(DataDifferentiator) {
     private lateinit var binding: ItemBrandHomeBinding
     private lateinit var phonesHomeAdapter: PhonesHomeAdapter
 
@@ -31,12 +27,12 @@ class BrandHomeAdapter(
 
     class ViewHolder(private val binding: ItemBrandHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(brand: Brand, listener: (String) -> Unit) {
+        fun bind(brand: Brand, listener: (Brand) -> Unit) {
             binding.apply {
                 name.text = brand.name
 
                 moreIv.setOnClickListener {
-                    listener(brand.slug)
+                    listener(brand)
                 }
             }
         }

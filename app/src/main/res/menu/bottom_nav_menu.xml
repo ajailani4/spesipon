@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
         android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/home" />
+        android:title="@string/home"
+        app:showAsAction="ifRoom" />
 
     <item
         android:enabled="false"
-        android:title="" />
+        android:title=""
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/brandsFragment"
         android:enabled="true"
         android:icon="@drawable/ic_brands"
-        android:title="@string/brands" />
+        android:title="@string/brands"
+        app:showAsAction="ifRoom" />
 
 </menu>

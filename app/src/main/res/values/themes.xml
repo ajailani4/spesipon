@@ -14,4 +14,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Toolbar Theme -->
+    <style name="CustomToolbar" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+    </style>
 </resources>

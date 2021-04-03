@@ -20,13 +20,7 @@ class BrandDataSource @Inject constructor(
 
             // Put phonesList to each brand
             data.forEach { brand ->
-                var phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones ?: emptyList()
-
-                if (phonesList.size > 5) {
-                    phonesList = phonesList.subList(0, 5)
-                }
-
-                brand.phonesList = phonesList
+                brand.phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones ?: emptyList()
             }
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
