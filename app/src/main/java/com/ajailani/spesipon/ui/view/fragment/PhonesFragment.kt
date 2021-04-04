@@ -47,7 +47,7 @@ class PhonesFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     private fun setupView() {
-        binding.brandName.text = args.brandName
+        binding.toolbar.title = args.brandName
 
         // Setup phonesAdapter and phonesRv
         phonesAdapter = PhonesAdapter { phone ->

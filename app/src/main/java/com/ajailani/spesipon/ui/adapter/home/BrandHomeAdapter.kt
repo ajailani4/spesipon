@@ -14,6 +14,7 @@ class BrandHomeAdapter(
 ) : PagingDataAdapter<Brand, BrandHomeAdapter.ViewHolder>(DataDifferentiator) {
     private lateinit var binding: ItemBrandHomeBinding
     private lateinit var phonesHomeAdapter: PhonesHomeAdapter
+    private val rvViewPool = RecyclerView.RecycledViewPool()
 
     object DataDifferentiator : DiffUtil.ItemCallback<Brand>() {
         override fun areItemsTheSame(oldItem: Brand, newItem: Brand): Boolean {
@@ -59,6 +60,8 @@ class BrandHomeAdapter(
                 )
 
                 adapter = phonesHomeAdapter
+
+                setRecycledViewPool(rvViewPool)
             }
         }
     }

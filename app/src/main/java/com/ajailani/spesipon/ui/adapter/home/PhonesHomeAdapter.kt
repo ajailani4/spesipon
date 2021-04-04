@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.ItemPhoneHomeBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
 
 class PhonesHomeAdapter(
     private val phonesHomeList: List<Phone>?

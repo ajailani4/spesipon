@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.ItemPhoneBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.Target
 
 class PhonesAdapter(
     private val listener: (Phone) -> Unit

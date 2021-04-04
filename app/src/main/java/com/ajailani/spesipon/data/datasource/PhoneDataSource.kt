@@ -15,7 +15,7 @@ class PhoneDataSource @Inject constructor(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Phone> {
         return try {
             val currentLoadingPageKey = params.key ?: 1
-            val response = apiHelper.getPhones(brandSlug, currentLoadingPageKey, 18)
+            val response = apiHelper.getPhones(brandSlug, currentLoadingPageKey, 20)
             val data = response.body()?.data?.phones ?: emptyList()
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1
