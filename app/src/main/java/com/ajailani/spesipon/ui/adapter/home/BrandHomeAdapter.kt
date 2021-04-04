@@ -1,16 +1,19 @@
 package com.ajailani.spesipon.ui.adapter.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.brand.Brand
+import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.ItemBrandHomeBinding
 
 class BrandHomeAdapter(
-    private val listener: (Brand) -> Unit
+    private val moreListener: (Brand) -> Unit,
+    private val phoneListener: (String, Phone?) -> Unit
 ) : PagingDataAdapter<Brand, BrandHomeAdapter.ViewHolder>(DataDifferentiator) {
     private lateinit var binding: ItemBrandHomeBinding
     private lateinit var phonesHomeAdapter: PhonesHomeAdapter
@@ -28,12 +31,12 @@ class BrandHomeAdapter(
 
     class ViewHolder(private val binding: ItemBrandHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(brand: Brand, listener: (Brand) -> Unit) {
+        fun bind(brand: Brand, moreListener: (Brand) -> Unit) {
             binding.apply {
                 name.text = brand.name
 
                 moreIv.setOnClickListener {
-                    listener(brand)
+                    moreListener(brand)
                 }
             }
         }
@@ -49,18 +52,18 @@ class BrandHomeAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         getItem(position)?.let { brand ->
-            holder.bind(brand, listener)
+            holder.bind(brand, moreListener)
 
             // Setup phonesHomeAdapter and phonesHomeRv
-            phonesHomeAdapter = PhonesHomeAdapter(brand.phonesList)
+            phonesHomeAdapter = PhonesHomeAdapter(brand.phonesList) { phone ->
+                phoneListener(brand.slug, phone)
+            }
 
             binding.phonesHomeRv.apply {
                 layoutManager = LinearLayoutManager(
                     context, LinearLayoutManager.HORIZONTAL, false
                 )
-
                 adapter = phonesHomeAdapter
-
                 setRecycledViewPool(rvViewPool)
             }
         }

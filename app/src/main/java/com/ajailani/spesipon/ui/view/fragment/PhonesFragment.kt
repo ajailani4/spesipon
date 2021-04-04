@@ -7,14 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.ajailani.spesipon.R
+import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.FragmentPhonesBinding
-import com.ajailani.spesipon.ui.adapter.brands.PhonesAdapter
+import com.ajailani.spesipon.ui.adapter.phones.PhonesAdapter
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
 import com.ajailani.spesipon.ui.viewmodel.PhonesBrandViewModel
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -40,8 +44,9 @@ class PhonesFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+        super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
         setupView()
     }
 
@@ -51,7 +56,7 @@ class PhonesFragment : Fragment() {
 
         // Setup phonesAdapter and phonesRv
         phonesAdapter = PhonesAdapter { phone ->
-
+            navigateToPhoneSpecs(args.brandSlug, phone)
         }
 
         binding.phonesRv.apply {
@@ -75,5 +80,19 @@ class PhonesFragment : Fragment() {
                 phonesAdapter.submitData(phones)
             }
         }
+    }
+
+    private fun navigateToPhoneSpecs(brandSlug: String, phone: Phone?) {
+        // Setup transition animation from HomeFragment to PhoneSpecsFragment
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
+            duration = 300
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
+            duration = 300
+        }
+
+        val direction = PhonesFragmentDirections.actionPhonesFragmentToPhoneSpecsFragment(brandSlug, phone?.slug!!)
+        findNavController().navigate(direction)
     }
 }

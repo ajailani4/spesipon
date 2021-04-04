@@ -9,6 +9,7 @@ import com.ajailani.spesipon.data.datasource.BrandDataSource
 import com.ajailani.spesipon.data.datasource.PhoneDataSource
 import com.ajailani.spesipon.data.model.brand.Brand
 import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.phonespecs.PhoneSpecsDataResponse
 import com.ajailani.spesipon.utils.Resource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -42,4 +43,9 @@ class MainRepository @Inject constructor(
             }
         ).flow
     }
+
+    fun getPhoneSpecs(brandSlug: String, phoneSlug: String) =
+        flow {
+            emit(apiHelper.getPhoneSpecs(brandSlug, phoneSlug))
+        }
 }

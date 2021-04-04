@@ -4,4 +4,6 @@
     <string name="lihat_spesifikasi">Lihat Spesifikasi Handphone Idaman Anda</string>
     <string name="home">Home</string>
     <string name="brands">Brands</string>
+    <string name="spesifikasi">Spesifikasi</string>
+    <string name="phone_card_transition">Phone Card Transition</string>
 </resources>

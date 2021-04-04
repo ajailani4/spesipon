@@ -19,13 +19,16 @@
             app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="brandSlug"
-            app:argType="string"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="string" />
         <argument
             android:name="brandName"
-            app:argType="string"
-            app:nullable="true" />
+            app:argType="string" />
+        <action
+            android:id="@+id/action_homeFragment_to_phoneSpecsFragment"
+            app:destination="@id/phoneSpecsFragment" />
+        <argument
+            android:name="phoneSlug"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/brandsFragment"
@@ -42,6 +45,21 @@
             app:argType="string" />
         <argument
             android:name="brandName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_phonesFragment_to_phoneSpecsFragment"
+            app:destination="@id/phoneSpecsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/phoneSpecsFragment"
+        android:name="com.ajailani.spesipon.ui.view.fragment.PhoneSpecsFragment"
+        android:label="Phone Specs"
+        tools:layout="@layout/fragment_phone_specs">
+        <argument
+            android:name="brandSlug"
+            app:argType="string" />
+        <argument
+            android:name="phoneSlug"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -4,17 +4,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ajailani.spesipon.R
 import com.ajailani.spesipon.data.model.brand.Brand
+import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.FragmentHomeBinding
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
 import com.ajailani.spesipon.ui.adapter.home.BrandHomeAdapter
 import com.ajailani.spesipon.ui.viewmodel.HomeViewModel
+import com.google.android.material.transition.MaterialElevationScale
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
@@ -48,9 +54,11 @@ class HomeFragment : Fragment() {
     @ExperimentalCoroutinesApi
     private fun setupView() {
         // Setup brandAdapter and brandPhoneRv
-        brandHomeAdapter = BrandHomeAdapter { brand ->
-            navigateToPhonesBrand(brand)
-        }
+        brandHomeAdapter = BrandHomeAdapter({ brand ->
+            navigateToPhones(brand)
+        }, { brandSlug, phone ->
+            navigateToPhoneSpecs(brandSlug, phone)
+        })
 
         binding.brandPhoneRv.apply {
             layoutManager = LinearLayoutManager(context)
@@ -75,8 +83,22 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun navigateToPhonesBrand(brand: Brand) {
+    private fun navigateToPhones(brand: Brand) {
         val direction = HomeFragmentDirections.actionHomeFragmentToPhonesFragment(brand.slug, brand.name)
+        findNavController().navigate(direction)
+    }
+
+    private fun navigateToPhoneSpecs(brandSlug: String, phone: Phone?) {
+        // Setup transition animation from HomeFragment to PhoneSpecsFragment
+        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
+            duration = 300
+        }
+
+        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
+            duration = 300
+        }
+
+        val direction = HomeFragmentDirections.actionHomeFragmentToPhoneSpecsFragment(brandSlug, phone?.slug!!)
         findNavController().navigate(direction)
     }
 }
