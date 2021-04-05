@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -28,7 +29,7 @@ import kotlinx.coroutines.launch
 class PhonesFragment : Fragment() {
     private lateinit var binding: FragmentPhonesBinding
     private val args: PhonesFragmentArgs by navArgs()
-    private val phonesBrandViewModel: PhonesBrandViewModel by activityViewModels()
+    private val phonesBrandViewModel: PhonesBrandViewModel by viewModels()
     private lateinit var phonesAdapter: PhonesAdapter
 
     override fun onCreateView(

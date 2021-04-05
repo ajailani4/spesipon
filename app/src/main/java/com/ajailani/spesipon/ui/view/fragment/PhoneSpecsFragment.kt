@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -20,13 +21,14 @@ import com.bumptech.glide.Glide
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PhoneSpecsFragment : Fragment() {
     private lateinit var binding: FragmentPhoneSpecsBinding
-    private val phoneSpecsViewModel: PhoneSpecsViewModel by activityViewModels()
+    private val phoneSpecsViewModel: PhoneSpecsViewModel by viewModels()
     private lateinit var phoneSpecsAdapter: PhoneSpecsAdapter
     private val args: PhoneSpecsFragmentArgs by navArgs()
 
@@ -59,7 +61,26 @@ class PhoneSpecsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+
         setupView()
+    }
+
+    private fun setupLoadingUI() {
+        binding.apply {
+            progressBar.visibility = View.VISIBLE
+            image.visibility = View.GONE
+            name.visibility = View.GONE
+            phoneSpecsRv.visibility = View.GONE
+        }
+    }
+
+    private fun setupLoadedUI() {
+        binding.apply {
+            progressBar.visibility = View.GONE
+            image.visibility = View.VISIBLE
+            name.visibility = View.VISIBLE
+            phoneSpecsRv.visibility = View.VISIBLE
+        }
     }
 
     @ExperimentalCoroutinesApi
@@ -71,12 +92,10 @@ class PhoneSpecsFragment : Fragment() {
             phoneSpecsData.collect {
                 when (it.status) {
                     Status.LOADING -> {
-                        binding.progressBar.visibility = View.VISIBLE
+                        setupLoadingUI()
                     }
 
                     Status.SUCCESS -> {
-                        binding.progressBar.visibility = View.GONE
-
                         // Setup phoneSpecsTitleAdapter and phoneSpecsTitleRv
                         phoneSpecsAdapter = it.data?.let { phoneSpecsData ->
                             PhoneSpecsAdapter(phoneSpecsData.specifications)
@@ -95,6 +114,8 @@ class PhoneSpecsFragment : Fragment() {
                                 adapter = phoneSpecsAdapter
                             }
                         }
+
+                        setupLoadedUI()
                     }
 
                     Status.ERROR -> {
