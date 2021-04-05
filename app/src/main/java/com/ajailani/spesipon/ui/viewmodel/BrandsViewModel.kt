@@ -8,8 +8,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class BrandsViewModel @Inject constructor(
     private val mainRepository: MainRepository
 ): ViewModel() {
-    fun getBrandsHome() = mainRepository.getBrandsHome().cachedIn(viewModelScope)
+    fun getBrands() = mainRepository.getBrands().cachedIn(viewModelScope)
 }

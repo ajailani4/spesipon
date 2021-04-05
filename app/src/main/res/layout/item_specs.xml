@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:paddingStart="5dp"
+            android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:clipToPadding="false"
             android:overScrollMode="never"

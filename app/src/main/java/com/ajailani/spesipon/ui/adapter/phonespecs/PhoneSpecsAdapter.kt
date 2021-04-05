@@ -34,7 +34,7 @@ class PhoneSpecsAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(phoneSpecsList[position])
 
-        // Setup phoneSpecsAdapter and phoneSpecsRv
+        // Setup phoneSubSpecsAdapter and phoneSpecsRv
         phoneSubSpecsAdapter = PhoneSubSpecsAdapter(phoneSpecsList[position].specs)
         binding.phoneSubSpecsRv.apply {
             layoutManager = LinearLayoutManager(context)

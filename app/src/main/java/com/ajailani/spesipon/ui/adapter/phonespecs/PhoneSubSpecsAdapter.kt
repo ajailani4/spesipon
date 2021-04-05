@@ -3,6 +3,7 @@ package com.ajailani.spesipon.ui.adapter.phonespecs
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ajailani.spesipon.R
 import com.ajailani.spesipon.data.model.phonespecs.PhoneSubSpecs
 import com.ajailani.spesipon.databinding.ItemSubSpecsBinding
 
@@ -18,7 +19,11 @@ class PhoneSubSpecsAdapter(
                 subTitle.text = phoneSubSpecs.subTitle
 
                 phoneSubSpecs.subSpecs.forEach {
-                    if (phoneSubSpecs.subSpecs.size > 1) subSpecs.text = "$it\n" else subSpecs.text = it
+                    if (phoneSubSpecs.subSpecs.size > 1) {
+                        subSpecs.text = root.context.getString(R.string.subspecs_more_than_one, it)
+                    } else {
+                        subSpecs.text = it
+                    }
                 }
             }
         }

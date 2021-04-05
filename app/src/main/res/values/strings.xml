@@ -2,8 +2,10 @@
     <string name="app_name">Spesipon</string>
     <string name="search_phone">Search phone</string>
     <string name="lihat_spesifikasi">Lihat Spesifikasi Handphone Idaman Anda</string>
-    <string name="home">Home</string>
+    <string name="home">Beranda</string>
     <string name="brands">Brands</string>
     <string name="spesifikasi">Spesifikasi</string>
     <string name="phone_card_transition">Phone Card Transition</string>
+    <string name="subspecs_more_than_one">%s\n</string>
+    <string name="count_devices">%d perangkat</string>
 </resources>

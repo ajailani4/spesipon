@@ -96,7 +96,7 @@ class PhoneSpecsFragment : Fragment() {
                     }
 
                     Status.SUCCESS -> {
-                        // Setup phoneSpecsTitleAdapter and phoneSpecsTitleRv
+                        // Setup phoneSpecsAdapter and phoneSpecsTitleRv
                         phoneSpecsAdapter = it.data?.let { phoneSpecsData ->
                             PhoneSpecsAdapter(phoneSpecsData.specifications)
                         }!!

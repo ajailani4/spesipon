@@ -7,7 +7,7 @@ import com.ajailani.spesipon.data.model.phone.Phone
 import java.lang.Exception
 import javax.inject.Inject
 
-class PhoneDataSource @Inject constructor(
+class PhonesDataSource @Inject constructor(
     private val apiHelper: ApiHelper
 ) : PagingSource<Int, Phone>() {
     private var brandSlug = ""

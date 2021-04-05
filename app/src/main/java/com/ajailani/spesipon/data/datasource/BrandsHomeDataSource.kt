@@ -8,7 +8,7 @@ import com.ajailani.spesipon.data.model.brand.Brand
 import java.lang.Exception
 import javax.inject.Inject
 
-class BrandDataSource @Inject constructor(
+class BrandsHomeDataSource @Inject constructor(
     private val apiHelper: ApiHelper
 ) : PagingSource<Int, Brand>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Brand> {

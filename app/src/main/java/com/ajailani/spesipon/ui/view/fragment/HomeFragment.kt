@@ -4,23 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ajailani.spesipon.R
 import com.ajailani.spesipon.data.model.brand.Brand
 import com.ajailani.spesipon.data.model.phone.Phone
 import com.ajailani.spesipon.databinding.FragmentHomeBinding
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
-import com.ajailani.spesipon.ui.adapter.home.BrandHomeAdapter
+import com.ajailani.spesipon.ui.adapter.home.BrandsHomeAdapter
 import com.ajailani.spesipon.ui.viewmodel.HomeViewModel
-import com.google.android.material.transition.MaterialElevationScale
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -31,7 +26,7 @@ import kotlinx.coroutines.launch
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel: HomeViewModel by viewModels()
-    private lateinit var brandHomeAdapter: BrandHomeAdapter
+    private lateinit var brandHomeAdapter: BrandsHomeAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,14 +49,14 @@ class HomeFragment : Fragment() {
 
     @ExperimentalCoroutinesApi
     private fun setupView() {
-        // Setup brandAdapter and brandPhoneRv
-        brandHomeAdapter = BrandHomeAdapter({ brand ->
+        // Setup brandsAdapter and brandsRv
+        brandHomeAdapter = BrandsHomeAdapter({ brand ->
             navigateToPhones(brand)
         }, { brandSlug, phone ->
             navigateToPhoneSpecs(brandSlug, phone)
         })
 
-        binding.brandPhoneRv.apply {
+        binding.brandsRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = brandHomeAdapter.withLoadStateFooter(
                 footer = FooterAdapter()
@@ -78,7 +73,7 @@ class HomeFragment : Fragment() {
 
         // Get brands list and show it
         lifecycleScope.launch {
-            homeViewModel.getBrands().collect { brands ->
+            homeViewModel.getBrandsHome().collect { brands ->
                 brandHomeAdapter.submitData(brands)
             }
         }
