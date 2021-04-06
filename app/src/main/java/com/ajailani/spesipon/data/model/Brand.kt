@@ -1,6 +1,5 @@
-package com.ajailani.spesipon.data.model.brand
+package com.ajailani.spesipon.data.model
 
-import com.ajailani.spesipon.data.model.phone.Phone
 import com.squareup.moshi.Json
 
 data class Brand(

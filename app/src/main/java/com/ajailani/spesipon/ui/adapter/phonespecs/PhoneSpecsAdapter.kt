@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ajailani.spesipon.data.model.phonespecs.PhoneSpecs
+import com.ajailani.spesipon.data.model.PhoneSpecs
 import com.ajailani.spesipon.databinding.ItemSpecsBinding
 
 class PhoneSpecsAdapter(

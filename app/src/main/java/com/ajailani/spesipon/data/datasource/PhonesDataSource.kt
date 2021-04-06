@@ -3,7 +3,7 @@ package com.ajailani.spesipon.data.datasource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ajailani.spesipon.data.api.ApiHelper
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Phone
 import java.lang.Exception
 import javax.inject.Inject
 

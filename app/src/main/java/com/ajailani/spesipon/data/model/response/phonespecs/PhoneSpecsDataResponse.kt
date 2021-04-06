@@ -1,5 +1,6 @@
-package com.ajailani.spesipon.data.model.phonespecs
+package com.ajailani.spesipon.data.model.response.phonespecs
 
+import com.ajailani.spesipon.data.model.PhoneSpecs
 import com.squareup.moshi.Json
 
 data class PhoneSpecsDataResponse(

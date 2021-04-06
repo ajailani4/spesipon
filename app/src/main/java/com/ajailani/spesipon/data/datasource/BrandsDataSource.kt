@@ -1,10 +1,9 @@
 package com.ajailani.spesipon.data.datasource
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ajailani.spesipon.data.api.ApiHelper
-import com.ajailani.spesipon.data.model.brand.Brand
+import com.ajailani.spesipon.data.model.Brand
 import java.lang.Exception
 import javax.inject.Inject
 

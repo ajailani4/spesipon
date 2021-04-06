@@ -2,7 +2,7 @@ package com.ajailani.spesipon.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ajailani.spesipon.data.model.phonespecs.PhoneSpecsDataResponse
+import com.ajailani.spesipon.data.model.response.phonespecs.PhoneSpecsDataResponse
 import com.ajailani.spesipon.data.repository.MainRepository
 import com.ajailani.spesipon.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

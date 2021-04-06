@@ -6,13 +6,13 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ajailani.spesipon.data.model.brand.Brand
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Brand
+import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.ItemBrandHomeBinding
 
 class BrandsHomeAdapter(
     private val moreListener: (Brand) -> Unit,
-    private val phoneListener: (String, Phone?) -> Unit
+    private val phoneListener: (String, String) -> Unit
 ) : PagingDataAdapter<Brand, BrandsHomeAdapter.ViewHolder>(DataDifferentiator) {
     private lateinit var binding: ItemBrandHomeBinding
     private lateinit var phonesHomeAdapter: PhonesHomeAdapter
@@ -54,8 +54,8 @@ class BrandsHomeAdapter(
             holder.bind(brand, moreListener)
 
             // Setup phonesHomeAdapter and phonesHomeRv
-            phonesHomeAdapter = PhonesHomeAdapter(brand.phonesList) { phone ->
-                phoneListener(brand.slug, phone)
+            phonesHomeAdapter = PhonesHomeAdapter(brand.phonesList) { phoneSlug ->
+                phoneListener(brand.slug, phoneSlug)
             }
 
             binding.phonesHomeRv.apply {

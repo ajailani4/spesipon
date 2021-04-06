@@ -1,4 +1,4 @@
-package com.ajailani.spesipon.data.model.brand
+package com.ajailani.spesipon.data.model.response.brand
 
 import com.squareup.moshi.Json
 

@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.R
-import com.ajailani.spesipon.data.model.brand.Brand
+import com.ajailani.spesipon.data.model.Brand
 import com.ajailani.spesipon.databinding.ItemBrandBinding
 
 class BrandsAdapter : PagingDataAdapter<Brand, BrandsAdapter.ViewHolder>(DataDifferentiator) {

@@ -14,16 +14,19 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.ajailani.spesipon.NavGraphDirections
 import com.ajailani.spesipon.R
 import com.ajailani.spesipon.databinding.ActivityMainBinding
 import com.ajailani.spesipon.ui.view.fragment.BrandsFragment
 import com.ajailani.spesipon.ui.view.fragment.HomeFragment
+import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
+    private lateinit var currentFragment: Fragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +40,16 @@ class MainActivity : AppCompatActivity() {
         // NavController is for controlling the navigation
         navController = navHostFragment.findNavController()
 
+        // Get current fragment
+        currentFragment = navHostFragment.childFragmentManager.fragments.first()
+
         binding.bottomNav.setupWithNavController(navController)
+
+        // When phoneSearchFab is clicked
+        binding.phoneSearchFab.setOnClickListener {
+            navigateToPhoneSearch()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -47,5 +59,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return item.onNavDestinationSelected(navController) || super.onOptionsItemSelected(item)
+    }
+
+    private fun navigateToPhoneSearch() {
+        // Setup transition animation to PhoneSearchFragment
+        currentFragment.apply {
+            exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
+                duration = 300
+            }
+
+            reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
+                duration = 300
+            }
+        }
+
+        val direction = NavGraphDirections.actionGlobalPhoneSearchFragment()
+        navController.navigate(direction)
     }
 }

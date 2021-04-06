@@ -1,26 +1,22 @@
 package com.ajailani.spesipon.ui.adapter.home
 
-import android.os.Build
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.ItemPhoneHomeBinding
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.Target
 
 class PhonesHomeAdapter(
     private val phonesHomeList: List<Phone>?,
-    private val listener: (Phone?) -> Unit
+    private val listener: (String) -> Unit
 ) : RecyclerView.Adapter<PhonesHomeAdapter.ViewHolder>() {
     private lateinit var binding: ItemPhoneHomeBinding
 
     class ViewHolder(private val binding: ItemPhoneHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(phone: Phone?, listener: (Phone?) -> Unit) {
+        fun bind(phone: Phone?, listener: (String) -> Unit) {
             binding.apply {
                 Glide.with(image.context)
                     .load(phone?.image)
@@ -29,7 +25,7 @@ class PhonesHomeAdapter(
                 name.text = phone?.name
 
                 root.setOnClickListener {
-                    listener(phone)
+                    listener(phone!!.slug)
                 }
             }
         }

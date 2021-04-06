@@ -5,16 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.ajailani.spesipon.R
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.FragmentPhonesBinding
 import com.ajailani.spesipon.ui.adapter.phones.PhonesAdapter
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
@@ -56,8 +53,8 @@ class PhonesFragment : Fragment() {
         binding.toolbar.title = args.brandName
 
         // Setup phonesAdapter and phonesRv
-        phonesAdapter = PhonesAdapter { phone ->
-            navigateToPhoneSpecs(args.brandSlug, phone)
+        phonesAdapter = PhonesAdapter { phoneSlug ->
+            navigateToPhoneSpecs(args.brandSlug, phoneSlug)
         }
 
         binding.phonesRv.apply {
@@ -83,17 +80,8 @@ class PhonesFragment : Fragment() {
         }
     }
 
-    private fun navigateToPhoneSpecs(brandSlug: String, phone: Phone?) {
-        // Setup transition animation from HomeFragment to PhoneSpecsFragment
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
-            duration = 300
-        }
-
-        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
-            duration = 300
-        }
-
-        val direction = PhonesFragmentDirections.actionPhonesFragmentToPhoneSpecsFragment(brandSlug, phone?.slug!!)
+    private fun navigateToPhoneSpecs(brandSlug: String, phoneSlug: String) {
+        val direction = PhonesFragmentDirections.actionPhonesFragmentToPhoneSpecsFragment(brandSlug, phoneSlug)
         findNavController().navigate(direction)
     }
 }

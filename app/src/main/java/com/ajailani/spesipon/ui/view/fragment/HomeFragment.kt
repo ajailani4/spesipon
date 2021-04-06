@@ -10,8 +10,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ajailani.spesipon.data.model.brand.Brand
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Brand
+import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.FragmentHomeBinding
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
 import com.ajailani.spesipon.ui.adapter.home.BrandsHomeAdapter
@@ -52,8 +52,8 @@ class HomeFragment : Fragment() {
         // Setup brandsAdapter and brandsRv
         brandHomeAdapter = BrandsHomeAdapter({ brand ->
             navigateToPhones(brand)
-        }, { brandSlug, phone ->
-            navigateToPhoneSpecs(brandSlug, phone)
+        }, { brandSlug, phoneSlug ->
+            navigateToPhoneSpecs(brandSlug, phoneSlug)
         })
 
         binding.brandsRv.apply {
@@ -84,17 +84,8 @@ class HomeFragment : Fragment() {
         findNavController().navigate(direction)
     }
 
-    private fun navigateToPhoneSpecs(brandSlug: String, phone: Phone?) {
-        // Setup transition animation from HomeFragment to PhoneSpecsFragment
-        exitTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
-            duration = 300
-        }
-
-        reenterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
-            duration = 300
-        }
-
-        val direction = HomeFragmentDirections.actionHomeFragmentToPhoneSpecsFragment(brandSlug, phone?.slug!!)
+    private fun navigateToPhoneSpecs(brandSlug: String, phoneSlug: String) {
+        val direction = HomeFragmentDirections.actionHomeFragmentToPhoneSpecsFragment(brandSlug, phoneSlug)
         findNavController().navigate(direction)
     }
 }

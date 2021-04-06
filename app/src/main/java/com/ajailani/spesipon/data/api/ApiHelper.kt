@@ -16,4 +16,7 @@ class ApiHelper @Inject constructor(
 
     suspend fun getPhoneSpecs(brandSlug: String, phoneSlug: String) =
         apiService.getPhoneSpecs(brandSlug, phoneSlug)
+
+    suspend fun getPhoneSearch(query: String, page: Int, limit: Int) =
+        apiService.getPhoneSearch(query, page, limit)
 }

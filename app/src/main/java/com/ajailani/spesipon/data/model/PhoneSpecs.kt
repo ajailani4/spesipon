@@ -1,8 +1,6 @@
-package com.ajailani.spesipon.data.model.phonespecs
+package com.ajailani.spesipon.data.model
 
-import android.os.Parcelable
 import com.squareup.moshi.Json
-import kotlinx.parcelize.Parcelize
 
 data class PhoneSpecs(
     @field:Json(name = "title")

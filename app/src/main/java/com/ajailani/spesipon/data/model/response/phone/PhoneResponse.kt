@@ -1,4 +1,4 @@
-package com.ajailani.spesipon.data.model.phone
+package com.ajailani.spesipon.data.model.response.phone
 
 import com.squareup.moshi.Json
 

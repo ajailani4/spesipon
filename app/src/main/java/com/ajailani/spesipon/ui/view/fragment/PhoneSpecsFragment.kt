@@ -32,19 +32,6 @@ class PhoneSpecsFragment : Fragment() {
     private lateinit var phoneSpecsAdapter: PhoneSpecsAdapter
     private val args: PhoneSpecsFragmentArgs by navArgs()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // Setup transition animation
-        enterTransition = MaterialSharedAxis(MaterialSharedAxis.Z, true).apply {
-            duration = 300
-        }
-
-        returnTransition = MaterialSharedAxis(MaterialSharedAxis.Z, false).apply {
-            duration = 300
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

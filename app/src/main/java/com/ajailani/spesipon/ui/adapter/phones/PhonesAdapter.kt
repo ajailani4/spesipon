@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.ItemPhoneBinding
 import com.bumptech.glide.Glide
 
 class PhonesAdapter(
-    private val listener: (Phone) -> Unit
+    private val listener: (String) -> Unit
 ) : PagingDataAdapter<Phone, PhonesAdapter.ViewHolder>(DataDifferentiator) {
     private lateinit var binding: ItemPhoneBinding
 
@@ -26,7 +26,7 @@ class PhonesAdapter(
 
     class ViewHolder(private val binding: ItemPhoneBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(phone: Phone, listener: (Phone) -> Unit) {
+        fun bind(phone: Phone, listener: (String) -> Unit) {
             binding.apply {
                 Glide.with(image.context)
                     .load(phone.image)
@@ -35,7 +35,7 @@ class PhonesAdapter(
                 name.text = phone.name
 
                 root.setOnClickListener {
-                    listener(phone)
+                    listener(phone.slug)
                 }
             }
         }

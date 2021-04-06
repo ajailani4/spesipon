@@ -1,14 +1,15 @@
-package com.ajailani.spesipon.data.model.brand
+package com.ajailani.spesipon.data.model.response.phone
 
+import com.ajailani.spesipon.data.model.Phone
 import com.squareup.moshi.Json
 
-data class BrandDataResponse(
+data class PhoneDataResponse(
     @field:Json(name = "page")
     val page: Int,
     @field:Json(name = "limit")
     val limit: Int,
     @field:Json(name = "last_page")
     val lastPage: Int,
-    @field:Json(name = "brands")
-    val brands: List<Brand>
+    @field:Json(name = "phones")
+    val phones: List<Phone>
 )

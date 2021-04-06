@@ -1,8 +1,9 @@
 package com.ajailani.spesipon.data.api
 
-import com.ajailani.spesipon.data.model.brand.BrandResponse
-import com.ajailani.spesipon.data.model.phone.PhoneResponse
-import com.ajailani.spesipon.data.model.phonespecs.PhoneSpecsResponse
+import com.ajailani.spesipon.data.model.response.brand.BrandResponse
+import com.ajailani.spesipon.data.model.response.phone.PhoneResponse
+import com.ajailani.spesipon.data.model.response.phonesearch.PhoneSearchResponse
+import com.ajailani.spesipon.data.model.response.phonespecs.PhoneSpecsResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -32,4 +33,11 @@ interface ApiService {
         @Path("brandSlug") brandSlug: String,
         @Path("phoneSlug") phoneSlug: String
     ): Response<PhoneSpecsResponse>
+
+    @GET("search")
+    suspend fun getPhoneSearch(
+        @Query("query") query: String,
+        @Query("page") page: Int,
+        @Query("limit") limit: Int
+    ): Response<PhoneSearchResponse>
 }

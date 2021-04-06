@@ -7,7 +7,7 @@ import com.ajailani.spesipon.data.api.ApiHelper
 import com.ajailani.spesipon.data.datasource.BrandsDataSource
 import com.ajailani.spesipon.data.datasource.BrandsHomeDataSource
 import com.ajailani.spesipon.data.datasource.PhonesDataSource
-import com.ajailani.spesipon.data.model.phone.Phone
+import com.ajailani.spesipon.data.model.Phone
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
