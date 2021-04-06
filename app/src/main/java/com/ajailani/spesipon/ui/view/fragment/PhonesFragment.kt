@@ -1,6 +1,7 @@
 package com.ajailani.spesipon.ui.view.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class PhonesFragment : Fragment() {
     private val args: PhonesFragmentArgs by navArgs()
     private val phonesBrandViewModel: PhonesBrandViewModel by viewModels()
     private lateinit var phonesAdapter: PhonesAdapter
+    private val footerAdapter = FooterAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,19 +59,25 @@ class PhonesFragment : Fragment() {
             navigateToPhoneSpecs(args.brandSlug, phoneSlug)
         }
 
+        phonesAdapter.addLoadStateListener { loadState ->
+            if (loadState.refresh is LoadState.Loading) {
+                binding.apply {
+                    progressBar.visibility = View.VISIBLE
+                    phonesRv.visibility = View.GONE
+                }
+            } else {
+                binding.apply {
+                    progressBar.visibility = View.GONE
+                    phonesRv.visibility = View.VISIBLE
+                }
+            }
+        }
+
         binding.phonesRv.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = phonesAdapter.withLoadStateFooter(
-                footer = FooterAdapter()
+                footer = footerAdapter
             )
-
-            phonesAdapter.addLoadStateListener { loadState ->
-                if (loadState.refresh is LoadState.Loading) {
-                    binding.progressBar.visibility = View.VISIBLE
-                } else {
-                    binding.progressBar.visibility = View.GONE
-                }
-            }
         }
 
         // Get phones list and show it

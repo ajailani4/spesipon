@@ -1,7 +1,6 @@
-package com.ajailani.spesipon.data.model.response.phone
+package com.ajailani.spesipon.data.model.response.phonesearch
 
-import com.ajailani.spesipon.data.model.Brand
-import com.ajailani.spesipon.data.model.Phone
+import com.ajailani.spesipon.data.model.PhoneSearch
 import com.squareup.moshi.Json
 
 data class PhoneSearchDataResponse(
@@ -12,5 +11,5 @@ data class PhoneSearchDataResponse(
     @field:Json(name = "last_page")
     val lastPage: Int,
     @field:Json(name = "phones")
-    val phones: List<Phone>
+    val phones: List<PhoneSearch>
 )

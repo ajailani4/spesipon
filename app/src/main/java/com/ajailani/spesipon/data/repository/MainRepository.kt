@@ -6,8 +6,10 @@ import androidx.paging.PagingData
 import com.ajailani.spesipon.data.api.ApiHelper
 import com.ajailani.spesipon.data.datasource.BrandsDataSource
 import com.ajailani.spesipon.data.datasource.BrandsHomeDataSource
+import com.ajailani.spesipon.data.datasource.PhoneSearchDataSource
 import com.ajailani.spesipon.data.datasource.PhonesDataSource
 import com.ajailani.spesipon.data.model.Phone
+import com.ajailani.spesipon.data.model.PhoneSearch
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -28,10 +30,8 @@ class MainRepository @Inject constructor(
         phoneDataSource.setBrandSlug(brandSlug)
 
         return Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = 20),
-            pagingSourceFactory = {
-                phoneDataSource
-            }
+            config = PagingConfig(enablePlaceholders = false, pageSize = 14),
+            pagingSourceFactory = { phoneDataSource }
         ).flow
     }
 
@@ -42,9 +42,19 @@ class MainRepository @Inject constructor(
 
     fun getBrands() =
         Pager(
-            config = PagingConfig(enablePlaceholders = false, pageSize = 10),
+            config = PagingConfig(enablePlaceholders = false, pageSize = 14),
             pagingSourceFactory = {
                 BrandsDataSource(apiHelper)
             }
         ).flow
+
+    fun getPhoneSearch(phoneQuery: String): Flow<PagingData<PhoneSearch>> {
+        val phoneSearchDataSource = PhoneSearchDataSource(apiHelper)
+        phoneSearchDataSource.setPhoneQuery(phoneQuery)
+
+        return Pager(
+            config = PagingConfig(enablePlaceholders = false, pageSize = 14),
+            pagingSourceFactory = { phoneSearchDataSource }
+        ).flow
+    }
 }

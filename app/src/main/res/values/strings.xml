@@ -8,5 +8,6 @@
     <string name="phone_card_transition">Phone Card Transition</string>
     <string name="subspecs_more_than_one">%s\n</string>
     <string name="count_devices">%d perangkat</string>
-    <string name="cari_handphone">Cari handphone (tanpa nama brand)</string>
+    <string name="cari_handphone">Cari seri handphone atau brand</string>
+    <string name="tidak_ditemukan">Tidak ditemukan</string>
 </resources>

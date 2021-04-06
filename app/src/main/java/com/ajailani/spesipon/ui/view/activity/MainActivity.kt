@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -47,9 +48,9 @@ class MainActivity : AppCompatActivity() {
 
         // When phoneSearchFab is clicked
         binding.phoneSearchFab.setOnClickListener {
+            binding.bottomNav.menu.findItem(R.id.searchPhone).isChecked = true
             navigateToPhoneSearch()
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

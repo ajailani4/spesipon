@@ -43,19 +43,26 @@ class BrandsFragment : Fragment() {
     private fun setupView() {
         // Setup brandsAdapter and brandsRv
         brandsAdapter = BrandsAdapter()
+
+        brandsAdapter.addLoadStateListener { loadState ->
+            if (loadState.refresh is LoadState.Loading) {
+                binding.apply {
+                    progressBar.visibility = View.VISIBLE
+                    brandsRv.visibility = View.GONE
+                }
+            } else {
+                binding.apply {
+                    progressBar.visibility = View.GONE
+                    brandsRv.visibility = View.VISIBLE
+                }
+            }
+        }
+
         binding.brandsRv.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = brandsAdapter.withLoadStateFooter(
                 footer = FooterAdapter()
             )
-
-            brandsAdapter.addLoadStateListener { loadState ->
-                if (loadState.refresh is LoadState.Loading) {
-                    binding.progressBar.visibility = View.VISIBLE
-                } else {
-                    binding.progressBar.visibility = View.GONE
-                }
-            }
         }
 
         // Get brands list and show it

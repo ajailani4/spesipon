@@ -13,10 +13,10 @@
         android:background="@color/white"
         android:theme="@style/CustomToolbar"
         android:clipChildren="false"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:elevation="2dp"
         app:navigationIcon="@drawable/ic_arrow_back">
 
         <LinearLayout
@@ -36,7 +36,7 @@
                 android:textSize="15sp"
                 android:hint="@string/cari_handphone"
                 android:imeOptions="actionSearch"
-                android:inputType="textNoSuggestions" />
+                android:inputType="text" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/closeSearchIv"
@@ -47,10 +47,48 @@
                 android:background="?attr/actionBarItemBackground"
                 android:src="@drawable/ic_close"
                 android:visibility="gone"
-                app:tint="@android:color/darker_gray" />
+                app:tint="@color/colorGray" />
 
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/phonesRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:paddingTop="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notFoundTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="@string/tidak_ditemukan"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="310dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

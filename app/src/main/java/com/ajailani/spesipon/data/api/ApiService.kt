@@ -36,7 +36,7 @@ interface ApiService {
 
     @GET("search")
     suspend fun getPhoneSearch(
-        @Query("query") query: String,
+        @Query("query") phoneQuery: String,
         @Query("page") page: Int,
         @Query("limit") limit: Int
     ): Response<PhoneSearchResponse>

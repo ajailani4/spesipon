@@ -17,12 +17,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-        <argument
-            android:name="brandSlug"
-            app:argType="string" />
-        <argument
-            android:name="brandName"
-            app:argType="string" />
         <action
             android:id="@+id/action_homeFragment_to_phoneSpecsFragment"
             app:destination="@id/phoneSpecsFragment"
@@ -30,9 +24,6 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
-        <argument
-            android:name="phoneSlug"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/brandsFragment"
@@ -74,7 +65,15 @@
         android:id="@+id/phoneSearchFragment"
         android:name="com.ajailani.spesipon.ui.view.fragment.PhoneSearchFragment"
         android:label="fragment_phone_search"
-        tools:layout="@layout/fragment_phone_search" />
+        tools:layout="@layout/fragment_phone_search" >
+        <action
+            android:id="@+id/action_phoneSearchFragment_to_phoneSpecsFragment"
+            app:destination="@id/phoneSpecsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
     <action
         android:id="@+id/action_global_phoneSearchFragment"
         app:destination="@id/phoneSearchFragment" />
