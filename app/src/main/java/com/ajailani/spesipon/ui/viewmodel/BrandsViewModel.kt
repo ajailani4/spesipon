@@ -10,6 +10,6 @@ import javax.inject.Inject
 @HiltViewModel
 class BrandsViewModel @Inject constructor(
     private val mainRepository: MainRepository
-): ViewModel() {
+) : ViewModel() {
     fun getBrands() = mainRepository.getBrands().cachedIn(viewModelScope)
 }

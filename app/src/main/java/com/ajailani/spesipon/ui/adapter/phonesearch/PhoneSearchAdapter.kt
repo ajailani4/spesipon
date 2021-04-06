@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.data.model.PhoneSearch
 import com.ajailani.spesipon.databinding.ItemPhoneBinding
 import com.bumptech.glide.Glide

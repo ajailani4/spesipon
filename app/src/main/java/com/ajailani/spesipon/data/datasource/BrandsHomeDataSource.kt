@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ajailani.spesipon.data.api.ApiHelper
 import com.ajailani.spesipon.data.model.Brand
-import java.lang.Exception
 import javax.inject.Inject
 
 class BrandsHomeDataSource @Inject constructor(
@@ -19,7 +18,8 @@ class BrandsHomeDataSource @Inject constructor(
 
             // Put phonesList to each brand
             data.forEach { brand ->
-                brand.phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones ?: emptyList()
+                brand.phonesList = apiHelper.getPhonesHome(brand.slug).body()?.data?.phones
+                    ?: emptyList()
             }
 
             val prevKey = if (currentLoadingPageKey == 1) null else currentLoadingPageKey - 1

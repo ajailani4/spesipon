@@ -10,7 +10,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PhoneSearchViewModel @Inject constructor(
     private val mainRepository: MainRepository
-): ViewModel() {
+) : ViewModel() {
     fun getPhoneSearch(phoneQuery: String) =
         mainRepository.getPhoneSearch(phoneQuery).cachedIn(viewModelScope)
 }

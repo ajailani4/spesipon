@@ -1,7 +1,6 @@
 package com.ajailani.spesipon.ui.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.FragmentPhonesBinding
-import com.ajailani.spesipon.ui.adapter.phones.PhonesAdapter
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
+import com.ajailani.spesipon.ui.adapter.phones.PhonesAdapter
 import com.ajailani.spesipon.ui.viewmodel.PhonesBrandViewModel
-import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect

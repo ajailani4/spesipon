@@ -1,25 +1,18 @@
 package com.ajailani.spesipon.ui.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import androidx.core.view.forEach
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ajailani.spesipon.NavGraphDirections
 import com.ajailani.spesipon.R
 import com.ajailani.spesipon.databinding.ActivityMainBinding
-import com.ajailani.spesipon.ui.view.fragment.BrandsFragment
-import com.ajailani.spesipon.ui.view.fragment.HomeFragment
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 

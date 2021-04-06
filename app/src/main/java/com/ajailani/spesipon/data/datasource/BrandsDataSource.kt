@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ajailani.spesipon.data.api.ApiHelper
 import com.ajailani.spesipon.data.model.Brand
-import java.lang.Exception
 import javax.inject.Inject
 
 class BrandsDataSource @Inject constructor(

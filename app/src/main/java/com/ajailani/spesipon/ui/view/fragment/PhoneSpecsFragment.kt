@@ -1,13 +1,11 @@
 package com.ajailani.spesipon.ui.view.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -18,10 +16,8 @@ import com.ajailani.spesipon.ui.adapter.phonespecs.PhoneSpecsAdapter
 import com.ajailani.spesipon.ui.viewmodel.PhoneSpecsViewModel
 import com.ajailani.spesipon.utils.Status
 import com.bumptech.glide.Glide
-import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 

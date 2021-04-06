@@ -11,12 +11,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajailani.spesipon.data.model.Brand
-import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.FragmentHomeBinding
 import com.ajailani.spesipon.ui.adapter.FooterAdapter
 import com.ajailani.spesipon.ui.adapter.home.BrandsHomeAdapter
 import com.ajailani.spesipon.ui.viewmodel.HomeViewModel
-import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect

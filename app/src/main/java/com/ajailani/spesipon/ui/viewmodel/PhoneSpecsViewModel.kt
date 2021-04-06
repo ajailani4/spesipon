@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class PhoneSpecsViewModel @Inject constructor(
     private val mainRepository: MainRepository
-): ViewModel() {
+) : ViewModel() {
     @ExperimentalCoroutinesApi
     private val phoneSpecsData =
         MutableStateFlow<Resource<PhoneSpecsDataResponse>>(Resource.loading(null))

@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ajailani.spesipon.data.model.Brand
-import com.ajailani.spesipon.data.model.Phone
 import com.ajailani.spesipon.databinding.ItemBrandHomeBinding
 
 class BrandsHomeAdapter(
