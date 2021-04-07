@@ -12,19 +12,19 @@ This app uses MVVM as for the architecture pattern. The libraries used in this a
 
 ## Preview
 ###### Home
-![Home](https://previews.dropbox.com/p/thumb/ABJN0u8-diRWa681POxS-qe7zayULiTEq60MaOArXZuesfXGScsy-18tzp6fo9xZS4hbGIm4Wo3pCWlMrhD6hhbHO87VcGkMg5WsV9m9ihiRBIxHDoh9uAseGQSge0MZvGv5Dhkxk7dxwzR5PpiUNnFKKFNP0deBJOpRguPWbWECqQIGrHOyM6YyMEzvtT1ZoBW7mmHoL88NZNpnz24eD_odG_8ldlR1Ess0-gDneu80dIGtcxtrrw_qEVzj4UeUvd0DIHNmrjzL2lceV9i3FH95Br6T9W6T65ZBAZCA_b8J5JnffAlt4TTfiiW08IOdMnIFMoakBK15ACI0-0nfuKNjdgn3kCk4aIlTstTY-NT5oQ/p.jpeg?fv_content=true&size_mode=5)
+![Home](https://firebasestorage.googleapis.com/v0/b/projekan-142f8.appspot.com/o/Spesipon%20SS%2F01.jpg?alt=media&token=7fa9a527-6cf4-475c-bacd-7ef14dd92d30)
 
 ###### Phones List
-![Phones List](https://previews.dropbox.com/p/thumb/ABINMZfdU6DUEXjKoOPYgyV4XuehGAoQkZRHOl5Fbfgqvnbu89zbqXOx6y-3C8JF03wiAsPMl3-BK5kEx5F_LFigUxoS6_1n_iEv1Xjr_Sov-QnQBqnSybn4ggs4LaBD6WBfGvDAE-XWKklivhcTLvAMMWkAUk_8ErmvWLg1po4bUUzTHYYG9t_0aPzBq6sPuAtURWDQt9mCWkaDGsx3O5TZj1lUu4c1Stq0E7o4qmjm5_zpRjYACWBKAljZx97TkShMiYgjuZzDjjG_PX3vcHbV1hyPlfp7FEynkO9wP9WJCAyf4Ve2WJWvsCsEnBNtmgM8zTJ9NCNKuX9GtW8wVnseesg0VWFvX12qP8kum54ssg/p.jpeg?fv_content=true&size_mode=5)
+![Phones List](https://firebasestorage.googleapis.com/v0/b/projekan-142f8.appspot.com/o/Spesipon%20SS%2F02.jpg?alt=media&token=c3c06a19-c6d0-481b-8642-c16dd4a9d744)
 
 ###### Phone Specifications
-![Phone Specifications](https://previews.dropbox.com/p/thumb/ABI2osz5mYgHW78PO5bU1kf9tK8FSCDaHhyOGgMRWin3rw1cFtzankrDa0MXTCGUo13lTMWpiy-RbYtn_dHcn9n3o6Bb_lCoh4qHwgiIOBAI6lhX1kQzRL6mX9L85G361cwIabSCaS69J0Svtd2XsDG3REe6vJ71jxG6D85rK-4wXdNNf-A0_PMekoq4xQ55E382_MFYO15sVQwfFC3lx9ThTEO0gYRPhgmi8BepnNSNNCp-wtgKsF8h99Yi575bB0Lj37-uxefDOEoZgGDrp4MW4EvtWd0Zd3QboEJem1TvuVrOGRQuHdqvgpOpBEDs2f65tgjF3X4cFaexYdXj6JmSj2NILzHsHWaWIcHWw9c-CQ/p.jpeg?size=1280x960&size_mode=3)
+![Phone Specifications](https://firebasestorage.googleapis.com/v0/b/projekan-142f8.appspot.com/o/Spesipon%20SS%2F03.jpg?alt=media&token=ee7718ea-5879-4ab1-9008-f8ffbee91427)
 
 ###### Search
-![Search](https://previews.dropbox.com/p/thumb/ABLRmgMjXI0v5o_s5jZAcmZCYsvf9TGbw78pl3GgNop0WR5ZQUaCLoVM3Qbf-m_vfrt8QFzoW2DwEBFCBr3G1JiOYpJyGseK7XuRR7BzwBh1RGc9mlfcBPeoK9J4by2mSByjpun2-uwiQqI7TvnDvFKp10j4lTFJ1ZRmz9ChwVIb0JDXN81Bqcmp0MyC63oL-9BlMup007Z_EB1fHtdDjNHX2xsvafBhMWY7GLbmy73t5XdTBC1sIIjsVr1CFPpgb3z7otVNViYVPQbSbz9CKakRaW8KYNKHwU9UFeAWagYBkc6h-htCWofzJ18ZRufod-n803BqDiKaPgLy7MXX1GgryhC5lNPVfdoh8ydfaoHBew/p.jpeg?fv_content=true&size_mode=5)
+![Search](https://firebasestorage.googleapis.com/v0/b/projekan-142f8.appspot.com/o/Spesipon%20SS%2F04.jpg?alt=media&token=c697b17b-5695-43f6-b644-0180395d3146)
 
 ###### Brands
-![Brands](https://previews.dropbox.com/p/thumb/ABIx3DelyhM31QqRJbOvD_BDLm_bt5GCHyTwFqSrs2ifliqnzMf-MImk8X54O5StIO0sAwqd-co15jOmf1R_VqrumFJAmNCBFqdESnjKVehrHl1LVQI7an49EK8DmW21gr31ocsgROAYphXLxxO05WHIIqg8phc8noaUdctJPRnSDDZYBU3TKKMR84JqPAU4H_nuD67iZP6HzVnI2mCRqdX5oD0cimNfcN9XQhDNNO6O9ovTJEJ30jTBaFKRspVxcsKIVUXMu1o1jHIUY0YpZ4Qkb2lKPuURxwcIY23EXp87GLxN2wtdEOgxqVRWsW0l4t94A5DPUN-tN6SkjpW6-uQtKOI9irf8DZ_6tEfLG5UwXQ/p.jpeg?fv_content=true&size_mode=5)
+![Brands](https://firebasestorage.googleapis.com/v0/b/projekan-142f8.appspot.com/o/Spesipon%20SS%2F05.jpg?alt=media&token=d3800590-9ece-499e-be60-128dc5556daa)
 
 ## Installation and Usage
 Download the zip from this repository or use git clone on your terminal.
