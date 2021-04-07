@@ -1,5 +1,5 @@
 # Spesipon
-Spesipon is a simple app for searching phone specifications. There are many phones from many brands in this app. Let's search the phone that you want to know how its specifications are.
+Spesipon is a simple app to search for phone specifications. There are many phones from many brands in this app. Let's search the phone that you want to know how its specifications are.
 
 ## Notes
 This app uses MVVM as for the architecture pattern. The libraries used in this app are Paging 3, Dagger Hilt, Retrofit, Jetpack Navigation Component, and Material Design. Also, this app uses https://github.com/azharimm/phone-specs-api for the Rest API
