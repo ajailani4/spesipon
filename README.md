@@ -23,7 +23,7 @@ This app uses MVVM as its architecture pattern. The libraries used in this app a
 Download the zip from this repository or use git clone on your terminal.
 
 ```bash
-git clone https://github.com/ajailani4/projekan.git
+git clone https://github.com/ajailani4/spesipon.git
 ```
 Then, run it on your android emulator or physical device.
 
