@@ -6,12 +6,19 @@ This app uses MVVM as for the architecture pattern. The libraries used in this a
 
 ## Features
 1. Read all phones based on their brand
-2. Search phone based on its series or brand name
-3. Read all brands and show how many devices that they have released
+2. Read phone specifications
+3. Search phone based on its series or brand name
+4. Read all brands and show how many devices that they have released
 
 ## Preview
 ###### Home
 ![Home]()
+
+###### Phones List
+![Phones List]()
+
+###### Phone Specifications
+![Phone Specifications]()
 
 ###### Brands
 ![Brands]()
