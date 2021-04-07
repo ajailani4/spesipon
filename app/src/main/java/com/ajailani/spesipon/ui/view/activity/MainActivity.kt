@@ -1,6 +1,8 @@
 package com.ajailani.spesipon.ui.view.activity
 
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.ajailani.spesipon.NavGraphDirections
 import com.ajailani.spesipon.R
 import com.ajailani.spesipon.databinding.ActivityMainBinding
+import com.ajailani.spesipon.ui.view.fragment.PhoneSearchFragment
 import com.google.android.material.transition.MaterialSharedAxis
 import dagger.hilt.android.AndroidEntryPoint
 

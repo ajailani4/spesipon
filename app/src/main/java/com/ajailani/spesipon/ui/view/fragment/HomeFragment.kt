@@ -73,6 +73,7 @@ class HomeFragment : Fragment() {
             adapter = brandHomeAdapter.withLoadStateFooter(
                 footer = FooterAdapter()
             )
+            isNestedScrollingEnabled = false
         }
 
         // Get brands list and show it

@@ -2,6 +2,7 @@ package com.ajailani.spesipon.ui.view.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +30,7 @@ class PhoneSearchFragment : Fragment() {
     private lateinit var binding: FragmentPhoneSearchBinding
     private val phoneSearchViewModel: PhoneSearchViewModel by viewModels()
     private lateinit var phoneSearchAdapter: PhoneSearchAdapter
+    private lateinit var inputMethodManager: InputMethodManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,18 +60,34 @@ class PhoneSearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.toolbar.setNavigationOnClickListener { findNavController().navigateUp() }
+
+        // Setup inputMethodManager
+        inputMethodManager = activity?.getSystemService(
+            Context.INPUT_METHOD_SERVICE
+        ) as InputMethodManager
+
         setupView()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        binding.phoneSearchInput.apply {
+            if (text?.isNotEmpty() == true) {
+                // If user go back to this fragment, the list of phone is recalled
+                getPhoneSearch(text.toString())
+            } else {
+                // Automatically open keyboard when this fragment is opened for the first time
+                this.requestFocus()
+                inputMethodManager.toggleSoftInput(
+                    InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY
+                )
+            }
+        }
     }
 
     private fun setupSearchBar() {
         binding.apply {
-            // Automatically open keyboard when this fragment is opened
-            phoneSearchInput.requestFocus()
-            val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager.toggleSoftInput(
-                InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY
-            )
-
             // Setup phoneSearchInput to become search bar
             phoneSearchInput.addTextChangedListener { text ->
                 if (text!!.isNotEmpty()) {
