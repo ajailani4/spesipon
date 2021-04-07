@@ -12,19 +12,19 @@ This app uses MVVM as for the architecture pattern. The libraries used in this a
 
 ## Preview
 ###### Home
-![Home]()
+![Home](https://i.postimg.cc/k6NPr8zP/01.jpg)
 
 ###### Phones List
-![Phones List]()
+![Phones List](https://i.postimg.cc/rR8Xqs20/02.jpg)
 
 ###### Phone Specifications
-![Phone Specifications]()
-
-###### Brands
-![Brands]()
+![Phone Specifications](https://i.postimg.cc/hhrRpLV9/03.jpg)
 
 ###### Search
-![Search]()
+![Search](https://i.postimg.cc/dLVPXh9g/04.jpg)
+
+###### Brands
+![Brands](https://i.postimg.cc/G9r1F7TL/05.jpg)
 
 ## Installation and Usage
 Download the zip from this repository or use git clone on your terminal.
